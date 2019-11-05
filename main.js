@@ -27,7 +27,7 @@ const previousOperandTextElement = document.querySelector('[data-previous-operan
 
 const currentOperandTextElement =document.querySelector('[data-current-operand]');
 
-const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+
 /*--------------------------END OF THE 1ST STEP--------------------------------------------*/ 
 /*=-=-==-=--=-==-=--=-=-=-=-=-=-=-=-=--=-==--=-==-=-=-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=*/
 
@@ -38,21 +38,54 @@ it is made to emulate class like functionality);
 Classes are blueprints or templates that be used to create new objects from. They hold 
 information, details, about an object.
 more in depth guide can be found here https://www.youtube.com/watch?v=8yjkWGRlUmY  - CS Dojo
-with 1.13m subs a
+with 1.13m subs 
 */ 
-
 
 class Calculator{
 
-constructor(prev){
-  /*constructors sort of like a function */ 
-  
+constructor(previousOperandTextElement, currentOperandTextElement) /*<-- these are paramaters at the moment but are given a values/arguments later on */ 
+/*parameters () inside constructor/function get the functionality from inside
+its scope NOT OUTSIDE* a clear tutorial about parameters inside a function/constructor
+a clear tutorial with timestamp at https://youtu.be/xjAu2Y2nJ34?t=477 -Dev Ed with 177k subscribers. another good resource that clears up the
+*/{
 
+  this.previousOperandTextElement = previousOperandTextElement;
+  /*both of these take parameters you passed in, 
+  and makes them properties of the class.*/
+  this.currentOperandTextElement = currentOperandTextElement;
+this.clear()}
+
+
+/*this clears the output*/
+clear(){
+
+  this.currentOperand = '';
+  this.previousOperand = '';
+  this.operation = undefined;
+ 
 
 }
 
+
+/*deletes a single number*/
+delete() {
+
+}
+/**/
+appendNumber(number){}
+
+/*what happens after a user clicks on a specific operation.*/ 
+chooseOperation(operation){
+
 }
 
+/**/
+compute(){}
+/*updates display.*/
+updateDisplay(){}
 
+}
 
-
+const calculator = new Calculator (previousOperandTextElement, currentOperandTextElement);
+              /*_.foreach_loops over all the buttons with number it basically selects them all and assigns them the same functionality*/
+numberButtons.forEach(button=> )
