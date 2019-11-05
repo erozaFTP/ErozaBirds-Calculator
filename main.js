@@ -43,17 +43,21 @@ with 1.13m subs
 
 class Calculator{
 
-constructor(previousOperandTextElement, currentOperandTextElement) /*<-- these are paramaters at the moment but are given a values/arguments later on */ 
+constructor(param1, param2) /*<-- these are paramaters at the moment but are given a values/arguments later on inside the constructor scope */ 
 /*parameters () inside constructor/function get the functionality from inside
 its scope NOT OUTSIDE* a clear tutorial about parameters inside a function/constructor
 a clear tutorial with timestamp at https://youtu.be/xjAu2Y2nJ34?t=477 -Dev Ed with 177k subscribers. another good resource that clears up the
 */{
-
-  this.previousOperandTextElement = previousOperandTextElement;
+                      
+  this.previousOperandTextElement = param1;
   /*both of these take parameters you passed in, 
   and makes them properties of the class.*/
-  this.currentOperandTextElement = currentOperandTextElement;
-this.clear()}
+  this.currentOperandTextElement = param2;
+  /*a very clear explanation on reddit on what parameters do and the what the syntax in the constructor scope actually does...
+  https://www.reddit.com/r/learnjavascript/comments/drpocu/im_confused_on_what_the_highlighted_part_actually/f6mkz3s/?context=3
+  
+  */
+  this.clear()}
 
 
 /*this clears the output*/
@@ -72,9 +76,9 @@ delete() {
 
 }
 /**/
-appendNumber(number){
+appendNumber(number/*parameter given an argument later*/){
 
-this.currentOperand=number
+this.currentOperand = number
 
 }
 
@@ -101,11 +105,20 @@ const calculator = new Calculator (previousOperandTextElement, currentOperandTex
               
 
 /*_.foreach_loops over all the buttons with number it basically selects them all and assigns them the same functionality*/
-numberButtons.forEach(button=> {button.addEventListener('click', () => {calculator.appendNumber(button.innerText)
-calculator.updateDisplay()
+
+numberButtons.forEach(button=> 
+  {button.addEventListener('click', () => 
+  {calculator.appendNumber(button.innerText)
+  calculator.updateDisplay() /*using functions within the class */
+})
 })
 
+console.log('')
 
 
 
-})
+
+
+
+
+
