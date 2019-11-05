@@ -72,7 +72,11 @@ delete() {
 
 }
 /**/
-appendNumber(number){}
+appendNumber(number){
+
+this.currentOperand=number
+
+}
 
 /*what happens after a user clicks on a specific operation.*/ 
 chooseOperation(operation){
@@ -82,10 +86,26 @@ chooseOperation(operation){
 /**/
 compute(){}
 /*updates display.*/
-updateDisplay(){}
+updateDisplay(){
 
+
+
+  this.currentOperandTextElement.innerText=this.currentOperand
 }
 
+}
+/*3rd step adding the onclicks--==--==-=--==--=-=-=-=-=-=--=-=-=-=-=-=-=-=--========-=-=-=*/
+
+
 const calculator = new Calculator (previousOperandTextElement, currentOperandTextElement);
-              /*_.foreach_loops over all the buttons with number it basically selects them all and assigns them the same functionality*/
-numberButtons.forEach(button=> )
+              
+
+/*_.foreach_loops over all the buttons with number it basically selects them all and assigns them the same functionality*/
+numberButtons.forEach(button=> {button.addEventListener('click', () => {calculator.appendNumber(button.innerText)
+calculator.updateDisplay()
+})
+
+
+
+
+})
